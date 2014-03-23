@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ledgerApp">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>The Detroit Ledger</title>
@@ -11,13 +11,11 @@
     </style>
 </head>
 
-<body ng-controller="OrganizationListCtrl">
-  <ul>
-    <li ng-repeat="org in orgs">
-      {{ org.name }}
-      <p>{{ org.snippet }}</p>
-    </li>
-  </ul>
+<body>
+  <h1>Welcome to the Detroit Ledger</h1>
+  <div id="content">
+    We're loading the organizations.
+  </div>
   <script data-main="js/main" src="js/require.js"></script>
 </body>
 </html>

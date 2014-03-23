@@ -4,14 +4,13 @@
 define([
 ],
 
-function(L) {
+function() {
   'use strict';
 
-  var settings = {};
-
-  settings.api = {
-    baseurl: '/api', // http://localhost:3000/api',
-    geo: '/api'
+  var settings = {
+    api: {
+      baseurl: 'http://data.detroitledger.org/api/1.0'
+    }
   };
 
   return settings;

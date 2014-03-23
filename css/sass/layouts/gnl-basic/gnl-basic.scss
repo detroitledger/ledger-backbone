@@ -1,0 +1,122 @@
+/*******************************************************************************
+ * _layout.scss
+ *
+ * Styling of the "simple" layout demonstrating the Compass grid extension Susy
+ * and building mobile first layouts.
+ ******************************************************************************/
+
+@import "compass";
+@import "susy";
+@import "breakpoint";
+@import "../../utils/vars";
+
+@mixin grid-background {
+  @if $debug-grid == true {
+    @include susy-grid-background;
+  }
+}
+
+%container {
+  @include container;
+  @include grid-background;
+  margin-bottom: $vert-spacing-unit;
+}
+
+.l-header-wrapper,
+.l-highlighted-wrapper,
+.l-content-wrapper,
+.l-footer {
+  @extend %container;
+}
+
+.l-header-wrapper {
+  margin-bottom: 0;
+}
+
+.full-width-container {
+}
+
+.l-content {
+  margin-top: 2 * $vert-spacing-unit;
+  margin-bottom: 2 * $vert-spacing-unit;
+}
+
+/* Sidebars */
+.l-region--sidebar-first,
+.l-region--sidebar-second {
+  padding: $vert-spacing-unit $horz-spacing-unit;
+}
+
+/* Footer */
+.l-footer-wrapper {
+  padding: $vert-spacing-unit 0;
+}
+
+@include at-breakpoint($tab_break) {
+  .l-header-wrapper,
+  .l-highlighted-wrapper,
+  .l-content-wrapper,
+  .l-footer {
+    @include set-container-width;
+    width: $tab_width;
+  }
+
+  /* Header */
+  .l-branding {
+    @include span-columns(3, 12);
+  }
+  .l-region--navigation {
+    @include span-columns(9 omega, 12);
+  }
+  .l-region--header {
+    @include span-columns(12 omega, 12);
+  }
+
+  /* Sidebars */
+  .two-sidebars,
+  .one-sidebar {
+    .l-content {
+      @include span-columns(8, 12);
+    }
+    .l-region--sidebar-first,
+    .l-region--sidebar-second {
+      @include span-columns(4 omega, 12);
+      clear: right;
+    }
+  }
+}
+
+@include at-breakpoint($desk_break) {
+  .l-header-wrapper,
+  .l-highlighted-wrapper,
+  .l-content-wrapper,
+  .l-footer {
+    @include set-container-width;
+    width: $desk_width;
+  }
+
+  /* Sidebars */
+  .one-sidebar {
+    .l-content {
+      @include span-columns(8, 12);
+    }
+    .l-region--sidebar-first {
+      @include span-columns(4, 12);
+      @include omega;
+      clear: none;
+    }
+  }
+  .two-sidebars {
+    .l-content {
+      @include span-columns(6, 12);
+    }
+    .l-region--sidebar-first,
+    .l-region--sidebar-second {
+      @include span-columns(3, 12);
+      clear: none;
+    }
+    .l-region--sidebar-second {
+      @include omega;
+    }
+  }
+}

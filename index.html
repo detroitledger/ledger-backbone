@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ledgerApp">
+<head>
+    <meta charset="utf-8">
+    <title>The Detroit Ledger</title>
+
+    <!-- Styles -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300|Pacifico' rel='stylesheet' type='text/css'>
+    <style type="text/css" media="all">
+      @import url("css/app.css");
+    </style>
+</head>
+
+<body ng-controller="OrganizationListCtrl">
+  <ul>
+    <li ng-repeat="org in orgs">
+      {{ org.name }}
+      <p>{{ org.snippet }}</p>
+    </li>
+  </ul>
+  <script data-main="js/main" src="js/require.js"></script>
+</body>
+</html>

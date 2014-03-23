@@ -1,0 +1,18 @@
+// colors
+
+// grid
+$vert-spacing-unit: 10px;
+$horz-spacing-unit: 1em;
+$total-columns: 4;
+$column-width: 4em;
+$gutter-width: $horz-spacing-unit;
+$grid-padding: 5px;
+$container-style: magic;
+$container-width: 1200px; // was 1200
+$tab_break: 44em 12;
+$tab_width: 44em;
+$desk_break: 70em 12;
+$desk_width: 70em;
+
+$debug-grid: false !default;
+

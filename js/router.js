@@ -5,12 +5,14 @@ define([
   'jquery',
   'lodash',
   'backbone',
-  'views/organizations/list'
-], function($, _, Backbone, OrganizationListView){
+  'views/organizations/list',
+  'views/organizations/item'
+], function($, _, Backbone, OrganizationListView, OrganizationItemView){
   var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'showOrganizations',
-      '/organizations': 'showOrganizations',
+      'organizations/:id': 'showOrganization',
+      'organizations': 'showOrganizations',
 
       // Default
       '*actions': 'defaultAction'
@@ -22,6 +24,13 @@ define([
       var router = new AppRouter();
 
       router.on('route:home', function() {
+      });
+
+      router.on('route:showOrganization', function(id) {
+        console.log("Show organzation", id);
+        var listView = new OrganizationItemView({
+          id: id
+        });
       });
 
       router.on('route:showOrganizations', function() {

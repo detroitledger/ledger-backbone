@@ -8,9 +8,10 @@ define([
   'backbone',
 
   // Project files
+  'views/grants/list',
   'models/organizations',
   'text!templates/organizations/item.html'
-], function($, _, Backbone, Organizations, template){
+], function($, _, Backbone, GrantListView, Organizations, template){
 
   var OrganizationView = Backbone.View.extend({
 
@@ -26,13 +27,24 @@ define([
         id: options.id
       });
       this.organization.fetch();
-      this.organization.bind('change', this.render);
+      this.organization.on('change', this.render);
     },
 
     render: function() {
       this.$el.html(this.template({
         organization: this.organization.toJSON()
       }));
+
+      this.grantsReceivedView = new GrantListView({
+        org: this.organization.get('id'),
+        direction: 'received',
+        el: '#grants-received'
+      });
+      this.grantsFundedView = new GrantListView({
+        org: this.organization.get('id'),
+        direction: 'funded',
+        el: '#grants-funded'
+      });
     }
   });
 

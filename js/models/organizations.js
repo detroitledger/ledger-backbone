@@ -17,15 +17,10 @@ function($, _, Backbone, settings) {
   var Organizations = {};
 
   Organizations.Model = Backbone.Model.extend({
-    initialize: function(options) {
-      console.log(options);
-    },
-
     url: function() {
       return settings.api.baseurl + '/orgs/' + this.id + ".jsonp/?callback=?";
     }
   });
-
 
   Organizations.Collection = Backbone.Collection.extend({
     model: Organizations.Model,
@@ -37,12 +32,11 @@ function($, _, Backbone, settings) {
     },
 
     parse: function(response) {
-      return _.values(response);
+      return response.orgs;
     }
   });
 
   return Organizations;
-
 });
 
 

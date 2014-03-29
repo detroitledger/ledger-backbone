@@ -14,35 +14,40 @@ define([
 function($, _, Backbone, settings) {
   'use strict';
 
-  var Organizations = {};
+  var Grants = {};
 
-  Organizations.Model = Backbone.Model.extend({
-    initialize: function(options) {
-      console.log(options);
-      this.fetch();
-    },
-
-    url: function() {
-      return settings.api.baseurl + '/orgs/' + this.id + ".jsonp/?callback=?";
-    }
+  Grants.Model = Backbone.Model.extend({
   });
 
-
-  Organizations.Collection = Backbone.Collection.extend({
-    model: Organizations.Model,
-    url: settings.api.baseurl + "/orgs.jsonp/?callback=?",
+  Grants.Collection = Backbone.Collection.extend({
+    model: Grants.Model,
 
     initialize: function(options) {
-      _.bindAll(this, 'parse');
+      _.bindAll(this, 'parse', 'url');
+      this.org = options.org;
+      this.direction = options.direction;
+
       this.fetch({reset: true});
     },
 
+    url: function() {
+      console.log(this.org, this.direction);
+      var url = settings.api.baseurl + '/orgs/' + this.org + '/';
+      if(this.direction === 'funded') {
+        url += "grants_funded.jsonp/?callback=?";
+      }
+      else if (this.direction === 'received') {
+        url += "grants_received.jsonp/?callback=?";
+      }
+      return url;
+    },
+
     parse: function(response) {
-      return _.values(response);
+      return _.values(response)[0];
     }
   });
 
-  return Organizations;
+  return Grants;
 
 });
 

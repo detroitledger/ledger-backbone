@@ -10,29 +10,39 @@ define([
   // Project files
   'models/grants',
   'text!templates/grants/list.html'
-], function($, _, Backbone, Organizations, template){
+], function($, _, Backbone, Grants, template){
 
   var GrantListView = Backbone.View.extend({
 
-    el: '#content',
     template: _.template(template),
 
+    /**
+     * Initialize the grant list
+     * @param  {Object} options
+     *                  options.direction: required. Specifies which grants to
+     *                  list. Valid values: funded, recieved
+     */
     initialize: function(options) {
-      console.log("Initialize grant list");
       _.bindAll(this, 'render');
 
+      this.direction = options.direction;
+
       // Get the organziations
-      this.grants = new Grants.Collection();
-      this.grants.bind('reset', this.render);
+      this.grants = new Grants.Collection({
+        org: options.org,
+        direction: options.direction
+      });
+      this.grants.on('reset', this.render);
     },
 
     render: function() {
       console.log("Rendering these grants: ", this.grants);
       this.$el.html(this.template({
-        grants: this.grants.toJSON()
+        grants: this.grants.toJSON(),
+        direction: this.direction
       }));
     }
   });
 
-  return OrganizationListVIew;
+  return GrantListView;
 });

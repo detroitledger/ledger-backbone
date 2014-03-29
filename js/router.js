@@ -12,7 +12,7 @@ define([
     routes: {
       '': 'showOrganizations',
       'organizations/:id': 'showOrganization',
-      'organizations': 'showOrganizations',
+      'organizations(/)': 'showOrganizations',
 
       // Default
       '*actions': 'defaultAction'

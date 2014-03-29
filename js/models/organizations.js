@@ -19,7 +19,6 @@ function($, _, Backbone, settings) {
   Organizations.Model = Backbone.Model.extend({
     initialize: function(options) {
       console.log(options);
-      this.fetch();
     },
 
     url: function() {

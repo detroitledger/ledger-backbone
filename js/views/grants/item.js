@@ -25,6 +25,7 @@ define([
       this.grant = new Grants.Model({
         id: options.id
       });
+      this.grant.fetch();
       this.grant.bind('change', this.render);
     },
 

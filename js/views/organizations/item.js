@@ -25,6 +25,7 @@ define([
       this.organization = new Organizations.Model({
         id: options.id
       });
+      this.organization.fetch();
       this.organization.bind('change', this.render);
     },
 

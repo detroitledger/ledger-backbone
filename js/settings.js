@@ -9,7 +9,7 @@ function() {
 
   var settings = {
     api: {
-      baseurl: 'http://data.detroitledger.org/api/1.0'
+      baseurl: 'http://gnl.detriot.org/api/1.0'
     }
   };
 

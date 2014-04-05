@@ -6,24 +6,35 @@ define([
   'jquery',
   'lodash',
   'backbone',
+  'numeral',
 
   // Project files
   'settings'
 ],
 
-function($, _, Backbone, settings) {
+function($, _, Backbone, numeral, settings) {
   'use strict';
 
   var Grants = {};
 
   Grants.Model = Backbone.Model.extend({
+    toJSON: function() {
+      var attributes = _.clone(this.attributes);
+
+      // Format dollar amounts nicely
+      if (attributes && attributes.field_funded_amount) {
+        attributes.amount = numeral(attributes.field_funded_amount).format('0,0[.]00');
+      }
+
+      return attributes;
+    }
   });
 
   Grants.Collection = Backbone.Collection.extend({
     model: Grants.Model,
 
     initialize: function(options) {
-      _.bindAll(this, 'parse', 'url');
+      _.bindAll(this, 'parse', 'url', 'toJSON');
       this.org = options.org;
       this.direction = options.direction;
 

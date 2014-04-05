@@ -6,7 +6,7 @@ require.config({
     backbone: 'lib/backbone',
     jquery: 'lib/jquery-1.10.0',
     lodash: 'lib/lodash',
-    numeral: 'lib/numeral',
+    numeral: 'lib/numeral.min',
     text: 'lib/text'
   },
 

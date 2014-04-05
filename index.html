@@ -4,17 +4,34 @@
     <meta charset="utf-8">
     <title>The Detroit Ledger</title>
 
-    <!-- Styles -->
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300|Pacifico' rel='stylesheet' type='text/css'>
+    <!-- Styles
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300|Pacifico' rel='stylesheet' type='text/css'>-->
     <style type="text/css" media="all">
       @import url("css/app.css");
     </style>
 </head>
 
 <body>
-  <h1>Welcome to the Detroit Ledger</h1>
-  <div id="content">
-    We're loading the organizations.
+  <nav class="wrapper">
+    <div class="in">
+      <strong><a href="">The Detroit Ledger</a></strong>
+      <a href="">Organizations</a>
+      <a href="">About the Detroit Ledger</a>
+      <a href="">Our Methods</a>
+      <a href="">Transparency</a>
+    </div>
+  </nav>
+
+  <header class="wrapper" role="banner">
+    <div class="in" id="title">
+      <h1>Welcome to the Detroit Ledger</h1>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <div class="in" id="content">
+      We're loading the organizations.
+    </div>
   </div>
   <script data-main="js/main" src="js/require.js"></script>
 </body>

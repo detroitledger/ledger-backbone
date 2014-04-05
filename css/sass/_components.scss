@@ -39,20 +39,19 @@
  ******************************************************************************/
 
 /* Header ------------------------------------------------------------------- */
-.page-head {
+header {
   background: $green;
   color: #fff;
   padding: 10px 0;
 }
 
-.contrast {
+nav {
   background: #0088cc;
   color: #fff;
   padding: 10px 0;
 }
 
-.l-branding,
-.l-region--navigation  {
+nav {
   font-size: 12px;
   line-height: 14px;
   a:link, a:active,

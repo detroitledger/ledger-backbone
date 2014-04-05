@@ -1,6 +1,6 @@
 <h2>Grants <%= direction %></h2>
 <ol>
     <% _.each(grants, function(g) { %>
-    <li>$<%= g.field_funded_amount.value %>: <a href="<%= g.id %>"><%= g.title %></a></li>
+    <li>$<%= g.field_funded_amount.value %>: <a href="#/grants/<%= g.id %>"><%= g.title %></a></li>
     <% }); %>
 </ol>

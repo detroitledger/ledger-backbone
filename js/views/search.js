@@ -12,7 +12,7 @@ define([
   'text!templates/organizations/list.html'
 ], function($, _, Backbone, Organizations, template){
 
-  var OrganizationListView = Backbone.View.extend({
+  var SearchView = Backbone.View.extend({
 
     el: '#content',
     template: _.template(template),
@@ -34,5 +34,5 @@ define([
     }
   });
 
-  return OrganizationListView;
+  return OrganizationListVIew;
 });

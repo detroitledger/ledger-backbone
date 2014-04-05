@@ -7,16 +7,24 @@ define([
   'lodash',
   'backbone',
 
-  // Project files
-  'views/grants/list',
+  // Project files:
+  // Models
   'models/organizations',
-  'text!templates/organizations/item.html'
-], function($, _, Backbone, GrantListView, Organizations, template){
+
+  // Views
+  'views/grants/list',
+
+  // Templates
+  'text!templates/organizations/item.html',
+  'text!templates/title.html'
+
+], function($, _, Backbone, Organizations, GrantListView, template, title){
 
   var OrganizationView = Backbone.View.extend({
 
     el: '#content',
     template: _.template(template),
+    title: _.template(title),
 
     initialize: function(options) {
       console.log("Initialize organization");
@@ -28,6 +36,7 @@ define([
       });
       this.organization.fetch();
       this.organization.on('change', this.render);
+      console.log(this.organization);
     },
 
     render: function() {
@@ -35,11 +44,17 @@ define([
         organization: this.organization.toJSON()
       }));
 
+      console.log($("#title").html());
+      $("#title").html(this.title({
+        title: this.organization.get('title')
+      }));
+
       this.grantsReceivedView = new GrantListView({
         org: this.organization.get('id'),
         direction: 'received',
         el: '#grants-received'
       });
+
       this.grantsFundedView = new GrantListView({
         org: this.organization.get('id'),
         direction: 'funded',

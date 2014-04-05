@@ -79,6 +79,8 @@ h1, h2, h3, h4, h5 {
  * features are added they will be correctly styled without any extra work.
  ******************************************************************************/
 body {
+  margin: 0;
+  padding: 0;
   background: #f1ecd1;
   font-family: nobile;
   color: #333333; }
@@ -116,6 +118,10 @@ select {
  * components should not be placed here and should instead be kept with the
  * relevant SCSS for that component.
  ******************************************************************************/
+.in {
+  max-width: 960px;
+  margin: 0px auto; }
+
 /*******************************************************************************
  * _components.scss
  *
@@ -156,26 +162,21 @@ select {
  *       also good candidates for components.
  ******************************************************************************/
 /* Header ------------------------------------------------------------------- */
-.page-head {
+header {
   background: #04952e;
   color: #fff;
   padding: 10px 0; }
 
-.contrast {
+nav {
   background: #0088cc;
   color: #fff;
   padding: 10px 0; }
 
-.l-branding,
-.l-region--navigation {
+nav {
   font-size: 12px;
   line-height: 14px; }
-  .l-branding a:link, .l-branding a:active,
-  .l-branding a:visited, .l-branding a:hover,
-  .l-region--navigation a:link,
-  .l-region--navigation a:active,
-  .l-region--navigation a:visited,
-  .l-region--navigation a:hover {
+  nav a:link, nav a:active,
+  nav a:visited, nav a:hover {
     color: white; }
 
 .site-branding {

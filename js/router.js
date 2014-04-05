@@ -2,15 +2,21 @@
 /*globals define: true */
 
 define([
+  // Libraries
   'jquery',
   'lodash',
   'backbone',
+
+  // Project files:
+  // Views
+  'views/search',
   'views/organizations/list',
   'views/organizations/item'
+
 ], function($, _, Backbone, OrganizationListView, OrganizationItemView){
   var AppRouter = Backbone.Router.extend({
     routes: {
-      '': 'showOrganizations',
+      '': 'home',
       'organizations/:id': 'showOrganization',
       'organizations(/)': 'showOrganizations',
 
@@ -24,6 +30,7 @@ define([
       var router = new AppRouter();
 
       router.on('route:home', function() {
+        var homeView = new SearchView({});
       });
 
       router.on('route:showOrganization', function(id) {

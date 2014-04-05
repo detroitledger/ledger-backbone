@@ -7,8 +7,11 @@ define([
   'lodash',
   'backbone',
 
-  // Project files
+  // Project files:
+  // Models
   'models/grants',
+
+  // Templates
   'text!templates/grants/list.html'
 ], function($, _, Backbone, Grants, template){
 

@@ -13,10 +13,15 @@ define([
   'views/organizations/list',
   'views/organizations/item'
 
-], function($, _, Backbone, OrganizationListView, OrganizationItemView){
+], function($, _, Backbone,
+                  SearchView,
+                  OrganizationListView,
+                  OrganizationItemView) {
+
   var AppRouter = Backbone.Router.extend({
     routes: {
       '': 'home',
+
       'organizations/:id': 'showOrganization',
       'organizations(/)': 'showOrganizations',
 

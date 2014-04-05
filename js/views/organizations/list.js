@@ -8,8 +8,12 @@ define([
   'backbone',
 
   // Project files
+  // Models
   'models/organizations',
+
+  // Templates
   'text!templates/organizations/list.html'
+
 ], function($, _, Backbone, Organizations, template){
 
   var OrganizationListView = Backbone.View.extend({
@@ -21,15 +25,16 @@ define([
       console.log("Initialize organization list");
       _.bindAll(this, 'render');
 
-      // Get the organziations
-      this.organizations = new Organizations.Collection();
-      this.organizations.bind('reset', this.render);
+      if (!this.collcetion) {
+        this.collection = new Organizations.Collection();
+      }
+      this.collection.bind('reset', this.render);
     },
 
     render: function() {
-      console.log("Rendering these organizations: ", this.organizations);
+      console.log("Rendering these organizations: ", this.collection);
       this.$el.html(this.template({
-        organizations: this.organizations.toJSON()
+        organizations: this.collection.toJSON()
       }));
     }
   });

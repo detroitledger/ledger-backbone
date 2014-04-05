@@ -28,6 +28,11 @@ function($, _, Backbone, settings) {
 
     initialize: function(options) {
       _.bindAll(this, 'parse');
+
+      if (options && options.title) {
+        this.url += '&filter[title]=' + options.title;
+
+      }
       this.fetch({reset: true});
     },
 

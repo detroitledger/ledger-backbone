@@ -36,7 +36,6 @@ define([
       });
       this.organization.fetch();
       this.organization.on('change', this.render);
-      console.log(this.organization);
     },
 
     render: function() {
@@ -44,7 +43,6 @@ define([
         organization: this.organization.toJSON()
       }));
 
-      console.log($("#title").html());
       $("#title").html(this.title({
         title: this.organization.get('title')
       }));

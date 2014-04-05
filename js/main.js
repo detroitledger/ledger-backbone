@@ -3,10 +3,11 @@
 
 require.config({
   paths: {
-    text: 'lib/text',
+    backbone: 'lib/backbone',
     jquery: 'lib/jquery-1.10.0',
     lodash: 'lib/lodash',
-    backbone: 'lib/backbone'
+    numeral: 'lib/numeral',
+    text: 'lib/text'
   },
 
   shim: {

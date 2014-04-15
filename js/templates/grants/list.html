@@ -1,8 +1,23 @@
 <% if(grants.length) {%>
-<h2>Grants <%= direction %></h2>
-<ol>
+<div class="row">
+<div class="col-md-6">
+    <h2>Grants <%= direction %></h2>
+
     <% _.each(grants, function(g) { %>
-    <li>$<%= g.amount %>: <a href="#/grants/<%= g.id %>"><%= g.title %></a></li>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>$<%= g.amount %></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">From: </div>
+        <div class="col-md-9"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">To: </div>
+        <div class="col-md-9"></div>
+    </div>
     <% }); %>
-</ol>
+</div>
+</div>
 <% } %>

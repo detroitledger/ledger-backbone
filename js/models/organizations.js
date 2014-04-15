@@ -28,15 +28,17 @@ function($, _, Backbone, settings) {
 
     initialize: function(options) {
       _.bindAll(this, 'parse');
+    },
 
+    search: function(options) {
       if (options && options.title) {
-        this.url += '&filter[title]=' + options.title;
-
+        this.url += '&filters[title]=' + options.title;
       }
       this.fetch({reset: true});
     },
 
     parse: function(response) {
+      console.log("Got orgs", response.orgs);
       return response.orgs;
     }
   });

@@ -39,10 +39,32 @@
  ******************************************************************************/
 
 /* Header ------------------------------------------------------------------- */
+.navbar-inverse {
+  background: $blue;
+  border-bottom: none;
+  color: #fff;
+
+  .navbar-brand {
+    font-weight: bold;
+  }
+
+  .navbar-brand,
+  .navbar-nav>li>a {
+    color: #fff;
+  }
+
+  .navbar-nav>.active>a,
+  .navbar-nav>.active>a:hover,
+  .navbar-nav>.active>a:focus {
+    color: #fff;
+    background: $blue;
+  }
+}
+
 header {
   background: $green;
   color: #fff;
-  padding: 10px 0;
+  padding: 10px 0 20px;
 }
 
 nav {

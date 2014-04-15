@@ -22,12 +22,8 @@ define([
     template: _.template(template),
 
     initialize: function(options) {
-      console.log("Initialize organization list");
+      console.log("Initialize organization list view");
       _.bindAll(this, 'render');
-
-      if (!this.collcetion) {
-        this.collection = new Organizations.Collection();
-      }
       this.collection.bind('reset', this.render);
     },
 

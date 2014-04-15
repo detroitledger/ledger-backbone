@@ -15,14 +15,16 @@ define([
   'views/organizations/list',
 
   // Templates
-  'text!templates/search.html'
+  'text!templates/search.html',
+  'text!templates/title.html'
 
-], function($, _, Backbone, Organizations, OrganizationListView, template){
+], function($, _, Backbone, Organizations, OrganizationListView, template, title){
 
   var SearchView = Backbone.View.extend({
 
     el: '#content',
     template: _.template(template),
+    title: _.template(title),
 
     events: {
       'keyup .search': 'search'
@@ -38,18 +40,23 @@ define([
     render: function() {
       console.log("Rendering the search view");
       this.$el.html(this.template({}));
+      $("#title").html(this.title({
+        title: "Welcome to the Detroit Ledger"
+      }));
+
+      this.organizations = new Organizations.Collection();
+      this.organizations.on('reset', this.results);
     },
 
     search: function(event) {
       var val = $(event.target).val();
-      console.log(val);
-      this.organizations = new Organizations.Collection({
+      this.organizations.search({
         title: val
       });
-      this.organizations.on('reset', this.results);
     },
 
     results: function() {
+      console.log("Rendering search results", this.organizations);
       this.listView = new OrganizationListView({
         el: "#results",
         collection: this.organizations

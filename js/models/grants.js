@@ -42,7 +42,6 @@ function($, _, Backbone, numeral, settings) {
     },
 
     url: function() {
-      console.log(this.org, this.direction);
       var url = settings.api.baseurl + '/orgs/' + this.org + '/';
       if(this.direction === 'funded') {
         url += "grants_funded.jsonp/?callback=?";

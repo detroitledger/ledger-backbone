@@ -36,28 +36,26 @@ define([
       });
       this.organization.fetch();
       this.organization.on('change', this.render);
-    },
 
-    render: function() {
-      this.$el.html(this.template({
-        organization: this.organization.toJSON()
-      }));
+      this.$el.html(this.template());
 
-      $("#title").html(this.title({
-        title: this.organization.get('title')
-      }));
-
+      // Get all the grants
       this.grantsReceivedView = new GrantListView({
-        org: this.organization.get('id'),
+        org: options.id,
         direction: 'received',
         el: '#grants-received'
       });
-
       this.grantsFundedView = new GrantListView({
-        org: this.organization.get('id'),
+        org: options.id,
         direction: 'funded',
         el: '#grants-funded'
       });
+    },
+
+    render: function() {
+      $("#title").html(this.title({
+        title: this.organization.get('title')
+      }));
     }
   });
 

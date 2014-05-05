@@ -30,6 +30,6 @@ require.config({
 require(['jquery', 'lodash', 'backbone', 'app', 'jquery.bootstrap'], function ($, _, Backbone, app) {
   'use strict';
   $(document).ready(function () {
-      app.initialize();
+    app.initialize();
   });
 });

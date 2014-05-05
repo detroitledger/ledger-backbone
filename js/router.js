@@ -25,6 +25,8 @@ define([
       'organizations/:id': 'showOrganization',
       'organizations(/)': 'showOrganizations',
 
+      'grants(/)': 'showGrants',
+
       // Default
       '*actions': 'defaultAction'
     }
@@ -40,7 +42,7 @@ define([
 
       router.on('route:showOrganization', function(id) {
         console.log("Show organzation", id);
-        var listView = new OrganizationItemView({
+        var itemView = new OrganizationItemView({
           id: id
         });
       });

@@ -195,6 +195,10 @@ nav {
 .site-branding {
   font-weight: bold; }
 
+/* Grants ------------------------------------------------------------------- */
+.grant h3 .glyphicon {
+  font-size: 12px; }
+
 /* Orgs --------------------------------------------------------------------- */
 .homepage-org {
   padding: 1.5em 0;
@@ -209,7 +213,6 @@ nav {
     border: 1px solid #e5dcaa;
     padding: 2px 5px; }
 
-/* Orgs --------------------------------------------------------------------- */
 .grants-received {
   margin: 0; }
 

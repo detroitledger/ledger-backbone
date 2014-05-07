@@ -3,22 +3,29 @@
     <h2>Grants <%= direction %></h2>
 
     <% _.each(grants, function(g) { %>
-    <div class="row">
-        <div class="col-md-12">
-            <h3>$<%= g.amount %></h3>
+    <div class="grant">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    $<%= g.amount %>
+                    <a href="#/grants/<%= g.id %>">
+                        <span class="glyphicon glyphicon-link"></span>
+                    </a>
+                </h3>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <% if (direction === 'received') { %>
-                <a href="#/organizations/<%= g.field_funder.target_id %>">
-                    <%= g.field_funder.name %>
-                </a>
-            <% } else { %>
-                <a href="#/organizations/<%= g.field_recipient.target_id %>">
-                    <%= g.field_recipient.name %>
-                </a>
-            <% } %>
+        <div class="row">
+            <div class="col-md-12">
+                <% if (direction === 'received') { %>
+                    <a href="#/organizations/<%= g.field_funder.target_id %>">
+                        <%= g.field_funder.name %>
+                    </a>
+                <% } else { %>
+                    <a href="#/organizations/<%= g.field_recipient.target_id %>">
+                        <%= g.field_recipient.name %>
+                    </a>
+                <% } %>
+            </div>
         </div>
     </div>
     <% }); %>

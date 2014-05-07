@@ -31,11 +31,11 @@ define([
       _.bindAll(this, 'render');
 
       // Get the organziations
-      this.organization = new Organizations.Model({
+      this.model = new Organizations.Model({
         id: options.id
       });
-      this.organization.fetch();
-      this.organization.on('change', this.render);
+      this.model.fetch();
+      this.model.on('change', this.render);
 
       this.$el.html(this.template());
 
@@ -53,8 +53,9 @@ define([
     },
 
     render: function() {
+      console.log("Rendering organization", this.model);
       $("#title").html(this.title({
-        title: this.organization.get('title')
+        title: this.model.get('title')
       }));
     }
   });

@@ -12,7 +12,7 @@ define([
   'text!templates/grants/item.html'
 ], function($, _, Backbone, Grants, template){
 
-  var GrantViw = Backbone.View.extend({
+  var GrantView = Backbone.View.extend({
 
     el: '#content',
     template: _.template(template),

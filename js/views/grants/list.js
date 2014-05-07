@@ -40,6 +40,7 @@ define([
 
     render: function() {
       console.log("Rendering these grants: ", this.grants);
+
       this.$el.html(this.template({
         grants: this.grants.toJSON(),
         direction: this.direction

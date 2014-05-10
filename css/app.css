@@ -83,7 +83,7 @@ body {
   margin: 0;
   padding: 0;
   padding-top: 50px;
-  background: #fff;
+  background: #f1ecd1;
   font-family: nobile;
   color: #333333; }
 
@@ -178,7 +178,16 @@ select {
 header {
   background: #04952e;
   color: #fff;
-  padding: 10px 0 20px; }
+  padding: 10px 0 20px;
+  margin-bottom: 20px; }
+
+header a,
+header a:link,
+header a:visited,
+header a:active {
+  color: #fff;
+  border-bottom: 1px dotted #fff;
+  text-decoration: none; }
 
 nav {
   background: #0088cc;
@@ -198,6 +207,12 @@ nav {
 /* Grants ------------------------------------------------------------------- */
 .grant h3 .glyphicon {
   font-size: 12px; }
+
+header .grant h2 {
+  margin-top: 5px; }
+
+header .grant h2.amount {
+  font-size: 6em; }
 
 /* Orgs --------------------------------------------------------------------- */
 .homepage-org {

@@ -16,6 +16,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+                From the
                 <% if (direction === 'received') { %>
                     <a href="#/organizations/<%= g.field_funder.target_id %>">
                         <%= g.field_funder.name %>
@@ -25,6 +26,8 @@
                         <%= g.field_recipient.name %>
                     </a>
                 <% } %>
+                from <%= g.start_date %> to <%= g.end_date %>.
+
             </div>
         </div>
     </div>

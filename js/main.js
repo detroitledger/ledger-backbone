@@ -7,6 +7,7 @@ require.config({
     jquery: 'lib/jquery-1.10.0',
     "jquery.bootstrap": "lib/bootstrap.min",
     lodash: 'lib/lodash',
+    moment: 'lib/moment.min',
     numeral: 'lib/numeral.min',
     text: 'lib/text'
   },

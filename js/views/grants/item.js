@@ -8,14 +8,19 @@ define([
   'backbone',
 
   // Project files
+  // Models
   'models/grants',
-  'text!templates/grants/item.html'
-], function($, _, Backbone, Grants, template){
+
+  // Templates
+  'text!templates/grants/item.html',
+  'text!templates/grants/details.html'
+], function($, _, Backbone, Grants, template, details){
 
   var GrantView = Backbone.View.extend({
 
     el: '#content',
     template: _.template(template),
+    details: _.template(details),
 
     initialize: function(options) {
       console.log("Initialize grant");
@@ -30,7 +35,13 @@ define([
     },
 
     render: function() {
-      this.$el.html(this.template({
+      console.log(this.grant.toJSON());
+
+      $("#title").html(this.template({
+        grant: this.grant.toJSON()
+      }));
+
+      this.$el.html(this.details({
         grant: this.grant.toJSON()
       }));
     }

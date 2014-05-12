@@ -187,7 +187,8 @@ header a:visited,
 header a:active {
   color: #fff;
   border-bottom: 1px dotted #fff;
-  text-decoration: none; }
+  text-decoration: none;
+  line-height: 1.5em; }
 
 nav {
   background: #0088cc;

@@ -11,10 +11,13 @@ define([
   // Models
   'models/grants',
 
+  // Views
+  'views/grants/list',
+
   // Templates
   'text!templates/grants/item.html',
   'text!templates/grants/details.html'
-], function($, _, Backbone, Grants, template, details){
+], function($, _, Backbone, Grants, GrantListView, template, details){
 
   var GrantView = Backbone.View.extend({
 
@@ -24,25 +27,41 @@ define([
 
     initialize: function(options) {
       console.log("Initialize grant");
-      _.bindAll(this, 'render');
+      _.bindAll(this, 'render', 'showRelated');
 
       // Get the organziations
-      this.grant = new Grants.Model({
+      this.model = new Grants.Model({
         id: options.id
       });
-      this.grant.fetch();
-      this.grant.bind('change', this.render);
+      this.model.fetch();
+      this.model.bind('change', this.render);
+      this.model.bind('change', this.showRelated);
+    },
+
+    showRelated: function() {
+      this.grantsReceivedView = new GrantListView({
+        org: this.model.get('field_recipient').target_id,
+        direction: 'received',
+        el: '#grants-received',
+        limit: 10
+      });
+      this.grantsFundedView = new GrantListView({
+        org: this.model.get('field_funder').target_id,
+        direction: 'funded',
+        el: '#grants-funded',
+        limit: 10
+      });
     },
 
     render: function() {
-      console.log(this.grant.toJSON());
+      console.log(this.model.toJSON());
 
       $("#title").html(this.template({
-        grant: this.grant.toJSON()
+        grant: this.model.toJSON()
       }));
 
       this.$el.html(this.details({
-        grant: this.grant.toJSON()
+        grant: this.model.toJSON()
       }));
     }
   });

@@ -8,15 +8,6 @@
     <div class="row">
         <div class="col-md-6">
             From
-        </div>
-
-        <div class="col-md-6">
-            To
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
             <h2>
                 <a href="#/organizations/<%= grant.field_funder.target_id %>">
                     <%= grant.field_funder.name %>
@@ -24,6 +15,7 @@
             </h2>
         </div>
         <div class="col-md-6">
+            To
             <h2>
                 <a href="#/organizations/<%= grant.field_recipient.target_id %>">
                     <%= grant.field_recipient.name %>

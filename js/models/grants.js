@@ -63,30 +63,32 @@ function($, _, Backbone, numeral, moment, settings) {
       return settings.api.baseurl + '/grants/' + this.id + '.jsonp/?callback=?';
     },
 
-    toJSON: function() {
-      var attributes = _.clone(this.attributes);
-
+    parse: function(data) {
       // Format dollar amounts nicely
-      if (attributes && attributes.field_funded_amount) {
-        attributes.amount = numeral(attributes.field_funded_amount).format('0,0[.]00');
+      if (data && data.field_funded_amount) {
+        data.amount = numeral(data.field_funded_amount).format('0,0[.]00');
       }
 
       // Format start and end dates
       // "Sun, 01 Jan 2012 05:00:00 -0500"
       // "ddd, DD MMM YYYY HH:mm:ss ZZ"
-      if (attributes && attributes.field_start_date) {
-        attributes.start_date = moment(attributes.field_start_date, settings.api.dateformat).format("YYYY");
+      if (data && data.field_start_date) {
+        data.start_date = moment(data.field_start_date, settings.api.dateformat).format("YYYY");
       }
-      if (attributes && attributes.field_end_date) {
-        attributes.end_date = moment(attributes.field_end_date, settings.api.dateformat).format("YYYY");
+      if (data && data.field_end_date) {
+        data.end_date = moment(data.field_end_date, settings.api.dateformat).format("YYYY");
       }
 
-      return attributes;
+      return data;
     }
   });
 
   Grants.Collection = Backbone.Collection.extend({
     model: Grants.Model,
+
+    comparator: function(model) {
+      return -model.get("start_date");
+    },
 
     initialize: function(options) {
       _.bindAll(this, 'parse', 'url', 'toJSON');

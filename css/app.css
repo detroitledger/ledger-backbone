@@ -100,6 +100,9 @@ a.active-trail {
   color: black;
   text-decoration: none; }
 
+h2 {
+  margin-top: 0; }
+
 html.js .form-autocomplete {
   background-position: 100% 7px; }
 
@@ -162,7 +165,8 @@ select {
 /* Header ------------------------------------------------------------------- */
 .navbar-inverse {
   background: #0088cc;
-  border-bottom: none;
+  border: none;
+  border-bottom: 1px solid #006395;
   color: #fff; }
   .navbar-inverse .navbar-brand {
     font-weight: bold; }
@@ -179,7 +183,7 @@ header {
   background: #04952e;
   color: #fff;
   padding: 10px 0 20px;
-  margin-bottom: 20px; }
+  border-bottom: 1px solid #03631f; }
 
 header a,
 header a:link,
@@ -205,12 +209,24 @@ nav {
 .site-branding {
   font-weight: bold; }
 
+/* Header ------------------------------------------------------------------- */
+footer {
+  bbackground: #ebe4bd;
+  border-top: 1px solid #e5dcaa;
+  padding-top: 25px;
+  font-size: 12px; }
+  footer form {
+    font-weight: bold;
+    color: #b0a360; }
+
+/* Content ------------------------------------------------------------------ */
+#content {
+  padding: 30px 0;
+  background: white; }
+
 /* Grants ------------------------------------------------------------------- */
 .grant h3 .glyphicon {
   font-size: 12px; }
-
-header .grant h2 {
-  margin-top: 5px; }
 
 header .grant h2.amount {
   font-size: 6em; }

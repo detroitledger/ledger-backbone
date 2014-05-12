@@ -4,32 +4,24 @@
 
     <% _.each(grants, function(g) { %>
     <div class="grant">
-        <div class="row">
-            <div class="col-md-12">
-                <h3>
-                    $<%= g.amount %>
-                    <a href="#/grants/<%= g.id %>">
-                        <span class="glyphicon glyphicon-link"></span>
-                    </a>
-                </h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                From the
-                <% if (direction === 'received') { %>
-                    <a href="#/organizations/<%= g.field_funder.target_id %>">
-                        <%= g.field_funder.name %>
-                    </a>
-                <% } else { %>
-                    <a href="#/organizations/<%= g.field_recipient.target_id %>">
-                        <%= g.field_recipient.name %>
-                    </a>
-                <% } %>
-                from <%= g.start_date %> to <%= g.end_date %>.
+        <h3>
+            $<%= g.amount %>
+            <a href="#/grants/<%= g.id %>">
+                <span class="glyphicon glyphicon-link"></span>
+            </a>
+        </h3>
 
-            </div>
-        </div>
+        From the
+        <% if (direction === 'received') { %>
+            <a href="#/organizations/<%= g.field_funder.target_id %>">
+                <%= g.field_funder.name %>
+            </a>
+        <% } else { %>
+            <a href="#/organizations/<%= g.field_recipient.target_id %>">
+                <%= g.field_recipient.name %>
+            </a>
+        <% } %>
+        from <%= g.start_date %> to <%= g.end_date %>.
     </div>
     <% }); %>
 </div>

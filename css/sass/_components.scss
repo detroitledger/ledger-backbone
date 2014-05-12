@@ -41,7 +41,8 @@
 /* Header ------------------------------------------------------------------- */
 .navbar-inverse {
   background: $blue;
-  border-bottom: none;
+  border: none;
+  border-bottom: 1px solid #006395;
   color: #fff;
 
   .navbar-brand {
@@ -65,7 +66,7 @@ header {
   background: $green;
   color: #fff;
   padding: 10px 0 20px;
-  margin-bottom: 20px;
+  border-bottom: 1px solid #03631f;
 }
 
 header a,
@@ -97,9 +98,27 @@ nav {
   font-weight: bold;
 }
 
+/* Header ------------------------------------------------------------------- */
+footer {
+  bbackground: #ebe4bd;
+  border-top: 1px solid #e5dcaa;
+  padding-top: 25px;
+  font-size: 12px;
+
+  form {
+    font-weight: bold;
+    color: #b0a360;
+  }
+}
+
+/* Content ------------------------------------------------------------------ */
+#content {
+  padding: 30px 0;
+  background: white;
+}
+
 
 /* Grants ------------------------------------------------------------------- */
-
 .grant h3 .glyphicon {
   font-size: 12px;
 }

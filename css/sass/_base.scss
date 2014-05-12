@@ -22,7 +22,6 @@ body {
   color: $body-color;
 }
 
-
 a:link,
 a:visited {
   color: $blue;
@@ -37,6 +36,10 @@ a:hover {
 a.active-trail {
   color: black;
   text-decoration: none;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 html.js .form-autocomplete {

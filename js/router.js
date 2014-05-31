@@ -12,13 +12,15 @@ define([
   'views/search',
   'views/organizations/list',
   'views/organizations/item',
-  'views/grants/item'
+  'views/grants/item',
+  'views/page'
 
 ], function($, _, Backbone,
                   SearchView,
                   OrganizationListView,
                   OrganizationItemView,
-                  GrantItemView) {
+                  GrantItemView,
+                  PageView) {
 
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -28,6 +30,8 @@ define([
       'organizations(/)': 'showOrganizations',
 
       'grants/:id': 'showGrant',
+
+      ':id': 'showPage',
 
       // Default
       '*actions': 'defaultAction'
@@ -50,18 +54,22 @@ define([
       });
 
       router.on('route:showOrganizations', function() {
-        console.log("Show organizations");
         var listView = new OrganizationListView();
       });
 
       router.on('route:showGrant', function(id) {
-        console.log("Show grant");
         var itemView = new GrantItemView({
           id: id
         });
       });
 
-      router.on('route:defaultAction', function(actions) {
+      router.on('route:showPage', function(id) {
+        var pageView = new PageView({
+          id: id
+        });
+      });
+
+      router.on('oute:defaultAction', function(actions) {
         console.log('No route:', actions);
       });
 

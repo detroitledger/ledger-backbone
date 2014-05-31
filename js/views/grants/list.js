@@ -33,7 +33,8 @@ define([
       // Get the organziations
       this.grants = new Grants.Collection({
         org: options.org,
-        direction: options.direction
+        direction: options.direction,
+        limit: options.limit
       });
       this.grants.on('reset', this.render);
     },

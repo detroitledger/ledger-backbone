@@ -66,7 +66,7 @@ header {
   background: $green;
   color: #fff;
   padding: 10px 0 20px;
-  border-bottom: 1px solid #03631f;
+  border-bottom: 1px solid #024a17;
 }
 
 header a,
@@ -98,11 +98,11 @@ nav {
   font-weight: bold;
 }
 
-/* Header ------------------------------------------------------------------- */
+/* Footer ------------------------------------------------------------------- */
 footer {
   bbackground: #ebe4bd;
   border-top: 1px solid #e5dcaa;
-  padding-top: 25px;
+  padding: 25px 0 20px 0;
   font-size: 12px;
 
   form {

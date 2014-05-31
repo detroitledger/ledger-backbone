@@ -94,18 +94,23 @@ function($, _, Backbone, numeral, moment, settings) {
       _.bindAll(this, 'parse', 'url', 'toJSON');
       this.org = options.org;
       this.direction = options.direction;
-
+      this.limit = options.limit;
+      console.log("LIMIT?", options.limit);
       this.fetch({reset: true});
     },
 
     url: function() {
       var url = settings.api.baseurl + '/orgs/' + this.org + '/';
       if(this.direction === 'funded') {
-        url += "grants_funded.jsonp/?callback=?";
+        url += "grants_funded.jsonp/?foo=bar";
       }
       else if (this.direction === 'received') {
-        url += "grants_received.jsonp/?callback=?";
+        url += "grants_received.jsonp/?foo=bar";
       }
+      if (this.limit) {
+        url += "&limit=" + this.limit;
+      }
+      url += '&callback=?';
       return url;
     },
 

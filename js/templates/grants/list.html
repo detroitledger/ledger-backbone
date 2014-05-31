@@ -5,13 +5,11 @@
     <% _.each(grants, function(g) { %>
     <div class="grant">
         <h3>
-            $<%= g.amount %>
-            <a href="#/grants/<%= g.id %>">
-                <span class="glyphicon glyphicon-link"></span>
-            </a>
+            <a href="#/grants/<%= g.id %>">$<%= g.amount %></a>
+            <a href="#/grants/<%= g.id %>"><span class="glyphicon glyphicon-link"></span></a></a>
         </h3>
 
-        From the
+        From
         <% if (direction === 'received') { %>
             <a href="#/organizations/<%= g.field_funder.target_id %>">
                 <%= g.field_funder.name %>

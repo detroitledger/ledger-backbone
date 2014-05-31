@@ -56,7 +56,6 @@
 body {
   font-size: 16px;
   line-height: 1.5;
-  font-family: "Sorts Mill Goudy", "Adobe Garamond", "Garamond", Palatino, serif;
   font-weight: 400; }
 
 .l-header,
@@ -224,12 +223,24 @@ footer {
   padding: 30px 0;
   background: white; }
 
+#content h1 {
+  color: #333;
+  border-top: 1px dotted #666;
+  line-height: 1.5;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold; }
+
 /* Grants ------------------------------------------------------------------- */
 .grant h3 .glyphicon {
   font-size: 12px; }
 
 header .grant h2.amount {
   font-size: 6em; }
+
+.grant-details ul {
+  list-style: none;
+  padding: 0; }
 
 /* Orgs --------------------------------------------------------------------- */
 .homepage-org {

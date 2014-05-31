@@ -10,7 +10,7 @@ function() {
   var settings = {
     api: {
       baseurl: 'http://gnl.detriot.org/api/1.0',
-      dateformat: 'ddd, DD MMM YYYY HH:mm:ss ZZ'
+      dateFormat: 'ddd, DD MMM YYYY HH:mm:ss ZZ'
     }
   };
 

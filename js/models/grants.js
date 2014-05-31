@@ -73,11 +73,14 @@ function($, _, Backbone, numeral, moment, settings) {
       // "Sun, 01 Jan 2012 05:00:00 -0500"
       // "ddd, DD MMM YYYY HH:mm:ss ZZ"
       if (data && data.field_start_date) {
-        data.start_date = moment(data.field_start_date, settings.api.dateformat).format("YYYY");
+        data.start_date = moment(data.field_start_date, settings.api.dateFormat).format("YYYY");
       }
       if (data && data.field_end_date) {
-        data.end_date = moment(data.field_end_date, settings.api.dateformat).format("YYYY");
+        data.end_date = moment(data.field_end_date, settings.api.dateFormat).format("YYYY");
       }
+
+      data.created = moment.unix(data.created).format("YYYY");
+      data.changed = moment.unix(data.changed).format("MMMM D YYYY");
 
       return data;
     }

@@ -117,6 +117,15 @@ footer {
   background: white;
 }
 
+#content h1 {
+  color: #333;
+  border-top: 1px dotted #666;
+  line-height: 1.5;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 
 /* Grants ------------------------------------------------------------------- */
 .grant h3 .glyphicon {
@@ -128,6 +137,11 @@ header .grant h2 {
 
 header .grant h2.amount {
   font-size: 6em;
+}
+
+.grant-details ul {
+  list-style: none;
+  padding: 0;
 }
 
 

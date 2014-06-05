@@ -16,15 +16,15 @@ define([
 
   // Templates
   'text!templates/organizations/item.html',
-  'text!templates/title.html'
+  'text!templates/organizations/details.html'
 
-], function($, _, Backbone, Organizations, GrantListView, template, title){
+], function($, _, Backbone, Organizations, GrantListView, template, details){
 
   var OrganizationView = Backbone.View.extend({
 
     el: '#content',
     template: _.template(template),
-    title: _.template(title),
+    details: _.template(details),
 
     initialize: function(options) {
       console.log("Initialize organization");
@@ -37,7 +37,7 @@ define([
       this.model.fetch();
       this.model.on('change', this.render);
 
-      this.$el.html(this.template());
+      this.$el.html(this.details());
 
       // Get all the grants
       this.grantsReceivedView = new GrantListView({
@@ -54,8 +54,8 @@ define([
 
     render: function() {
       console.log("Rendering organization", this.model);
-      $("#title").html(this.title({
-        title: this.model.get('title')
+      $("#title").html(this.template({
+        o: this.model.toJSON()
       }));
     }
   });

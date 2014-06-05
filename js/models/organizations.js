@@ -6,12 +6,13 @@ define([
   'jquery',
   'lodash',
   'backbone',
+  'numeral',
 
   // Project files
   'settings'
 ],
 
-function($, _, Backbone, settings) {
+function($, _, Backbone, numeral, settings) {
   'use strict';
 
   var Organizations = {};
@@ -19,6 +20,20 @@ function($, _, Backbone, settings) {
   Organizations.Model = Backbone.Model.extend({
     url: function() {
       return settings.api.baseurl + '/orgs/' + this.id + ".jsonp/?callback=?";
+    },
+
+    parse: function(data){
+      // Format dollar amounts nicely
+      console.log(data);
+      if (data && data.org_grants_funded) {
+        data.amount_funded = numeral(data.org_grants_funded).format('0,0[.]00');
+      }
+      if (data && data.org_grants_received) {
+        data.amount_received = numeral(data.org_grants_received).format('0,0[.]00');
+      }
+      console.log(data);
+
+      return data;
     }
   });
 

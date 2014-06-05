@@ -22,10 +22,7 @@ function($, _, Backbone, settings) {
     },
 
     parse: function(data){
-      if(data.pages[0]) {
-        data.pages[0].body = data.pages[0].body.und[0].safe_value;
-        return data.pages[0];
-      }
+      return data.pages[0];
     }
   });
 

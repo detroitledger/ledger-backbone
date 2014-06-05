@@ -97,7 +97,7 @@ function($, _, Backbone, numeral, moment, settings) {
       _.bindAll(this, 'parse', 'url', 'toJSON');
       this.org = options.org;
       this.direction = options.direction;
-      this.limit = options.limit;
+      this.limit = options.limit ? options.limit : 1000;
       console.log("LIMIT?", options.limit);
       this.fetch({reset: true});
     },

@@ -127,6 +127,34 @@ footer {
 }
 
 
+/* Search ------------------------------------------------------------------- */
+
+input.search {
+  width: 60%;
+  min-width: 300px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.eg {
+  color: $gray;
+}
+
+#results {
+  margin-top: 1em;
+  border-bottom: 1px solid $lighter-tan;
+}
+
+#results .org {
+  border-top: 1px solid $lighter-tan;
+  padding: 10px 5px 5px 0px;
+}
+
+#results .org p {
+  color: $gray;
+}
+
+
 /* Grants ------------------------------------------------------------------- */
 .grant h3 .glyphicon {
   font-size: 12px;

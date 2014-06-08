@@ -22,7 +22,7 @@ define([
     template: _.template(template),
 
     initialize: function(options) {
-      console.log("Initialize organization list view");
+      console.log("Initialize organization list view", options);
       _.bindAll(this, 'render');
       this.collection.bind('reset', this.render);
     },

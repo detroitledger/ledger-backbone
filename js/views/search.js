@@ -32,7 +32,7 @@ define([
 
     initialize: function(options) {
       console.log("Initialize organization list");
-      _.bindAll(this, 'render', 'search', 'results');
+      _.bindAll(this, 'render', 'search', 'error');
 
       this.render();
     },
@@ -45,21 +45,27 @@ define([
       }));
 
       this.organizations = new Organizations.Collection();
-      this.organizations.on('reset', this.results);
+      this.organizations.on('error', function(error){
+        // TODO:
+        // This should work, but doesn't.
+        console.log("Hey! What's wrong?", error);
+      });
+
+      this.listView = new OrganizationListView({
+        el: "#results",
+        collection: this.organizations
+      });
+      this.organizations.fetch({ reset: true });
+    },
+
+    error: function(error) {
+      console.log(error);
     },
 
     search: function(event) {
       var val = $(event.target).val();
       this.organizations.search({
         title: val
-      });
-    },
-
-    results: function() {
-      console.log("Rendering search results", this.organizations);
-      this.listView = new OrganizationListView({
-        el: "#results",
-        collection: this.organizations
       });
     }
   });

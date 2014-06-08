@@ -24,14 +24,12 @@ function($, _, Backbone, numeral, settings) {
 
     parse: function(data){
       // Format dollar amounts nicely
-      console.log(data);
       if (data && data.org_grants_funded) {
         data.amount_funded = numeral(data.org_grants_funded).format('0,0[.]00');
       }
       if (data && data.org_grants_received) {
         data.amount_received = numeral(data.org_grants_received).format('0,0[.]00');
       }
-      console.log(data);
 
       return data;
     }
@@ -49,7 +47,7 @@ function($, _, Backbone, numeral, settings) {
       if (options && options.title) {
         this.url += '&filters[title]=' + options.title;
       }
-      this.fetch({reset: true});
+      this.fetch({ reset: true });
     },
 
     parse: function(response) {

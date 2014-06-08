@@ -64,6 +64,7 @@ define([
 
     search: function(event) {
       var val = $(event.target).val();
+      window.ga('send', 'event', 'data', 'search', val);
       this.organizations.search({
         title: val
       });

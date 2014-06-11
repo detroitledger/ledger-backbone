@@ -9,13 +9,14 @@ define([
 
   // Project files:
   // Views
+  'views/home',
   'views/search',
   'views/organizations/list',
   'views/organizations/item',
   'views/grants/item',
   'views/page'
-
 ], function($, _, Backbone,
+                  HomeView,
                   SearchView,
                   OrganizationListView,
                   OrganizationItemView,
@@ -43,7 +44,7 @@ define([
       var router = new AppRouter();
 
       router.on('route:home', function() {
-        var homeView = new SearchView({});
+        var homeView = new HomeView({});
       });
 
       router.on('route:showOrganization', function(id) {

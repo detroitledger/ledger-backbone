@@ -1,11 +1,5 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Find an organization</h2>
-
-            <input class="search" placeholder="Organization name">
-            <p class="eg"><em>Eg, "Michigan Nonprofit Association"</em></p>
-            <div id="results"></div>
-        </div>
-    </div>
-</div>
+<form action="http://data.detroitledger.org/orgs">
+  <input type="text" placeholder="Find an organization or funder you care about" name="title" class="search"><input type="submit" value="Search">
+</form>
+<p class="eg"><em>Eg, "Michigan Nonprofit Association"</em></p>
+<div id="results"></div>

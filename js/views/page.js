@@ -38,7 +38,8 @@ define([
     render: function() {
       console.log("Rendering page", this.model);
       $("#title").html(this.title({
-        title: this.model.get('title')
+        title: this.model.get('title'),
+        options: {}
       }));
       this.$el.html(this.template({
         page: this.model.toJSON()

@@ -25,9 +25,13 @@ define([
     template: _.template(template),
     title: _.template(title),
 
+    events: {
+      'click #network': 'showNetwork'
+    },
+
     initialize: function(options) {
       console.log("Initialize homepage");
-      _.bindAll(this, 'render');
+      _.bindAll(this, 'render', 'showNetwork');
 
       this.model = new Stats.Model();
       this.model.fetch();
@@ -51,6 +55,11 @@ define([
       }));
 
       this.SearchView = new SearchView().render();
+    },
+
+    showNetwork: function(event) {
+      console.log(event);
+      $('#network').animate({height:'1670px', cursor:'auto'});
     }
   });
 

@@ -260,7 +260,8 @@ header .home {
 
 #home .container {
   width: 650px; }
-  #home .container input[type="text"] {
+  #home .container input[type="text"],
+  #home .container input[type="email"] {
     width: 100%;
     max-width: 450px;
     min-width: 100px;
@@ -329,6 +330,9 @@ header .home {
     font-size: 45px; }
   #network img {
     padding-top: 1200px; }
+
+#network:hover {
+  height: 350px; }
 
 .contrast .callout {
   border-bottom: 5px solid #e5dcaa; }
